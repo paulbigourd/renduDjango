@@ -1,0 +1,19 @@
+{% extends "_base.html" %}
+
+{% block body %}
+
+<div class="header_article">
+  <h2>{{ article.titre }}</h2>
+  <span>rédigé par {{ article.auteur }} le {{ article.date_publication }}</span>
+</div>
+<div class="banner" style="background-image: url({{ article.picture.url }})">
+
+
+</div>
+
+  <div class="content">
+    {{article.contenu}}
+  </div>
+
+
+{% endblock %}

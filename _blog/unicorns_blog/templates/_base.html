@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>{% block title %}Unicorns{% endblock %}</title>
+        {% load static %}
+        <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+        <link href="{% static 'css/bootstrap-grid.css' %}" rel="stylesheet">
+        <link href="{% static 'css/style.css' %}" rel="stylesheet">
+
+    </head>
+    <body>
+      <header>
+        {% block header%}
+          <h1>Le Blog des Licornes Magiques</h1>
+          <nav>
+            <a href='/'>accueil</a>
+            <a href='/propos'>à propos</a>
+          </nav>
+
+        {% endblock %}
+      </header>
+        {% block body %}  {% endblock %}
+
+        <footer> site réalisé à la vas-vite mais j'aurais fait ce que j'ai pu</footer>
+    </body>
+</html>

@@ -1,0 +1,45 @@
+{% extends "_base.html" %}
+
+{% block body %}
+<div class="row">
+    {% for article in articles %}
+
+          <div class="col-lg-4 col-12"  >
+              <a class="carte" href="/articles/{{ article.slug }}" style="cursor:pointer;">
+                <div class="card">
+
+                  <div class="image" style="background-image:url('{{ article.picture.url }}');">
+
+                  </div>
+                  <div class="card-body">
+                    <h3>{{article.titre}}</h3>
+                    <span>auteur : {{article.auteur}}</span>
+                  </div>
+                </div>
+
+              </a>
+          </div>
+
+    {% endfor %}
+</div>
+
+
+
+<div class="pagination">
+    <span class="step-links">
+        {% if articles.has_previous %}
+            <a href="?page=1">&laquo; first</a>
+            <a href="?page={{ articles.previous_page_number }}">previous</a>
+        {% endif %}
+
+        <span class="current">
+            Page {{ articles.number }} of {{ articles.paginator.num_pages }}.
+        </span>
+
+        {% if articles.has_next %}
+            <a href="?page={{ articles.next_page_number }}">next</a>
+            <a href="?page={{ articles.paginator.num_pages }}">last &raquo;</a>
+        {% endif %}
+    </span>
+</div>
+{% endblock %}
